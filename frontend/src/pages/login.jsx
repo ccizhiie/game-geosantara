@@ -70,7 +70,7 @@ const Login = () => {
               }
           setLoading(false)
       })
-      
+
   } catch (error) {
       Swal.fire({
           icon: "error",
