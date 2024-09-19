@@ -4,17 +4,17 @@ const { generateId } = require('../services/generateId'); // import fungsi gener
 // Fungsi utama yang menerima parameter app (instance Express)
 const level = (app) => {
 
-  // Endpoint GET untuk mengambil semua data level dan soal
-  app.get('/list-level', async (req, res) => {
-    try {
-      const db = admin.firestore(); // Inisialisasi Firestore dari admin Firebase
+    // Endpoint GET untuk mengambil semua data level dan soal
+    app.get('/list-level', async (req, res) => {
+      try {
+        const db = admin.firestore(); // Inisialisasi Firestore dari admin Firebase
 
-      // get semua dokumen dari koleksi 'Levels'
-      const levelsSnapshot = await db.collection('Levels').get();
+        // get semua dokumen dari koleksi 'Levels'
+        const levelsSnapshot = await db.collection('Levels').get();
 
       // Jika tidak ada level yg ditemukan, kembalikan status 404 (Not Found)
       if (levelsSnapshot.empty) {
-        return res.status(404).send('No levels found'); // Jika tidak ada dokumen, kirim respons 'No levels found' 
+        return res.status(404).send('No levels found'); // Jika tidak ada dokumen, kirim respons 'No levels found'
       }
       // Memproses setiap dokumen level menggunakan Promise.all untuk menangani operasi asynchronous
       const levelsData = await Promise.all(

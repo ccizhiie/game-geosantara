@@ -1,9 +1,13 @@
 import React from "react";
+import map from "../assets/maploading2.svg";
 
 const Loading = ({ progress }) => {
   return (
     <div className="fixed inset-0 flex flex-col justify-center items-center  bg-slate-300 bg-opacity-80 z-50">
       <div>
+      </div>
+      <div className="mb-5"> 
+        <img src={map} alt="map" className="w-80" />
       </div>
       <div>
         <h1 className="mb-5 font-bold text-5xl text-orange-500">
